@@ -1,0 +1,55 @@
+fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+
+
+
+    async function load() {
+    try {
+        let res = await fetch(url);
+        let data = await res.json();
+        console.log(data);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
+async function getTodo() {
+    try {
+        // Wait for the request 
+        let response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+
+        // Wait for JSON parsing
+        let data = await response.json();
+
+        console.log("Data received:", data); //print the result
+    } 
+    catch (error) {
+        console.log("Error:", error);
+    }
+}
+
+getTodo();
+
+ // Mini Example Like C#
+ //JS
+ async function process() {
+    console.log("1. Start");
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log("2. After 2 seconds");
+    console.log("3. End");
+}
+
+process();
+
+
+//C#
+// async Task Process()
+// {
+//     Console.WriteLine("1. Start");
+//     await Task.Delay(2000);
+//     Console.WriteLine("2. After 2 seconds");
+//     Console.WriteLine("3. End");
+// }
